@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:sample_flutter/binding/home_binding.dart';
+import 'package:sample_flutter/model/interest_hive.dart';
 import 'package:sample_flutter/view/home_view.dart';
 
 import '../controller/controller.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(InterestHiveAdapter());
+  await Hive.openBox<InterestHive>('interest_hive');
   runApp(const MyApp());
 }
 
