@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
              },isForEdit: false);
             },
             backgroundColor: Colors.green,
-            child: const Icon(Icons.navigation),
+            child: const Icon(Icons.add),
           ),
           appBar: AppBar(
 
