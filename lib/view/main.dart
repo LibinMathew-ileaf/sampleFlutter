@@ -5,12 +5,16 @@ import 'package:sample_flutter/binding/home_binding.dart';
 import 'package:sample_flutter/model/interest_hive.dart';
 import 'package:sample_flutter/view/home_view.dart';
 
+import '../app/modules/Dialog/controllers/dialog_controller.dart';
 import '../controller/controller.dart';
 
 Future<void> main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
   Hive.registerAdapter(InterestHiveAdapter());
+  Get.put(DialogController());
   await Hive.openBox<InterestHive>('interest_hive');
   runApp(const MyApp());
 }
